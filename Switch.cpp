@@ -39,7 +39,7 @@ void Switch::serverLoop(){
     }
 }
 
-void Switch::startWebServer(){
+void Switch::startWebServer(){                      //calling switch function
   server = new ESP8266WebServer(localPort);
 
   server->on("/", [&]() {
@@ -111,7 +111,7 @@ void Switch::handleUpnpControl(){
   Serial.print("request:");
   Serial.println(request);
 
-  if(request.indexOf("<BinaryState>1</BinaryState>") > 0) {
+  if(request.indexOf("<BinaryState>1</BinaryState>") > 0) {           //begning of loop
       Serial.println("Got Turn on request");
       onCallback();
   }
